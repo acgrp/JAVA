@@ -1,0 +1,24 @@
+package 그것만이내세상;
+
+import scanner.Scanner3;
+
+import java.util.Scanner;
+
+public class 스캐너1 {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("다신의 이름을 입력하세요:");
+        String name = scanner.nextLine();
+
+        System.out.print("당신의 나이을 입력해주세요");
+         int age = scanner.nextInt();
+
+        System.out.println("당신의 이름은 " + name + "이고, 나이는" + age + "살입니다.");
+
+
+
+
+    }
+}
