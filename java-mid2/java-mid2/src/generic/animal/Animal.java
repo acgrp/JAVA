@@ -24,7 +24,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "animal{" +
                 "name='" + name + '\'' +
                 ", size=" + size +
                 '}';

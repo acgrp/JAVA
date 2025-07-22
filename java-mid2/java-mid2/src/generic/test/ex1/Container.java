@@ -4,6 +4,7 @@ public class Container<T> {
 
     private T item;
 
+
     public void setItem(T item) {
         this.item = item;
     }
@@ -13,6 +14,6 @@ public class Container<T> {
     }
 
     public boolean isEmpty() {
-        return item != null;
+        return item == null;
     }
 }

@@ -4,8 +4,8 @@ public class StringBox {
 
     private String value;
 
-    public void set(String object) {
-        this.value = object;
+    public void set(String value) {
+        this.value = value;
     }
 
     public String get() {
