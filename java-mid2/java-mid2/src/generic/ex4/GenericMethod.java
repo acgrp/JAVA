@@ -7,7 +7,7 @@ public class GenericMethod {
         return obj;
     }
 
-    public static <T> T genericMethod(T t) {
+    public static <T> T genericMethod(T t) {  //제네릭 메서드는 메서드 반환 타입 왼쪽에 <T> 매개변수 표시
         System.out.println("generic print: " + t);
         return t;
     }
