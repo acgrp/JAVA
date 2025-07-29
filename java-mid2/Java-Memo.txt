@@ -1,0 +1,105 @@
+코딩 메모장
+
+문자열
+String str = "abcdef";
+int n = 3;  // 뒤에서 3자리
+
+String result = str.substring(str.length() - n); //substring : (str.length() - n)부터 끝까지 잘라줌
+
+System.out.println(result);  // 출력: "def"
+
+문자열 -> 배열
+[char]
+char[] chars = my_string.toCharArray();   문자열을 문자 배열로 변환
+char temp = chars[num1];                  (교환을 위해 임시로 저장)
+chars[num1] = chars[num2];                (num2의 문자를 num1 자리에)
+chars[num2] = temp;                       (임시 저장했던 문자를 num2 자리에)
+return new String(chars);                 다시 배열을 문자열로 바꿔서 반환
+[sb]
+char ch1 = sb.charAt(num1);	      num1 위치 문자 추출
+char ch2 = sb.charAt(num2);	      num2 위치 문자 추출
+sb.setCharAt(num1, ch2);	      num1 위치에 ch2 설정
+sb.setCharAt(num2, ch1);	      num2 위치에 ch1 설정
+sb.toString();	                  다시 문자열로 반환
+
+
+문자열 대문자 소문자
+Character.isUpperCase(ch)	ch가 대문자인지 확인
+Character.isLowerCase(ch)	ch가 소문자인지 확인
+Character.toUpperCase(ch)	ch를 대문자로 변환
+Character.toLowerCase(ch)	ch를 소문자로 변환
+
+StringBuilder 주요 메서드
+append()	문자열 끝에 붙이기
+insert()	원하는 위치에 삽입
+delete()	특정 부분 삭제
+reverse()	문자열 뒤집기
+toString()	최종 문자열로 변환
+
+
+배열
+import java.util.*;                                             코드쓰기위한 임포트
+List<Integer> list = new ArrayList<>();	                        동적으로 크기 지정 없이 약수 저장 가능
+list.add(i);	                                                약수를 발견할 때마다 추가
+return list.stream().mapToInt(Integer::intValue).toArray();     리스트를 배열로 한 줄 변환
+
+
+배열(붙이기)
+StringBuilder sb = new StringBuilder();//홀-짝수를 붙일 문자열StringBuilder선언
+for (int num : num_list) { // num_list를 반복하면서 num이라는 변수에 넣기
+    if (num % 2 == 0) {
+       even.append(num);  //num을 even에 붙이기(문자열로 붙이기)
+    } else {
+       odd.append(num);  //num을 even에 붙이기(문자열로 붙이기)
+
+    }
+    int oddNum = Integer.parseInt(odd.toString());   //붙인 문자열을 toString으로 바꾸고, Integer.parseInt()로 문자열을 정수로 변환("351" -> 351)
+    int evenNum = Integer.parseInt(even.toString());
+    return oddNum + evenNum;
+}
+
+더미 배열
+import java.util.*;                                       //사용하기 위한 조건
+List<Integer> list = new ArrayList<>();                   //생성 <성질>
+list.add(숫자);                                            //값을 추가
+list.size();                                              //.length와 같은 코드
+list.get(인덱스)                                           //'인덱스'번째 요소 가져옴
+list.set(인덱스, 새값)                                      // 인덱스 -> 새값
+list.stream().mapToInt(Integer::intValue).toArray();      // Integer->Int 변환(삽입시 필요)
+list.toArray(new String[0]);                              // list<String> -> String[ ]
+
+배열
+import java.util.Arrays;                                  // 사용하기에 필요한것
+answer = new int[numbers.length];                         // numbers의 길이만큼 배열 갯수 지정
+Arrays.sort(arr);                                         // 오름차순으로 정렬
+Arrays.sort(arr, Collections.reverseOrder());             // 내림차순
+char[] chars = sb.toString().toCharArray();               // sb를 문자열로 변환 -> 문자배열(char[])
+int[] answer = new int[chars.length];                     //chars.length 만큼 크기의 int배열 제작
+Arrays.copyOfRange(원본배열, 시작인덱스, 끝인덱스);            // 배열자르기
+
+if문
+if (answer > n) break;  //break의 경우 가능
+    answer += numbers[i];  // else부분
+
+향상된 for문
+for (자료형 변수명 : 배열이나 컬렉션) {   // 변수명으로 요소를 하나씩 꺼내서 사용
+}
+[Ex]
+int[] numbers = {1, 2, 3, 4, 5};
+
+for (int num : numbers) {
+    System.out.println(num);
+}
+
+삼항연산자
+int num = 5;
+String result = (num > 0) ? 참 : 거짓;  //(num > 0)이 조건, 참-거짓이 result로 들어감
+
+System.out.println(result);  // 출력: 양수
+OR
+int a = 10;
+int b = 20;
+
+int max = (a > b) ? a : b;
+
+System.out.println("더 큰 값은: " + max);  // 출력: 20
