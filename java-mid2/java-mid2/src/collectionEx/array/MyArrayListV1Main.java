@@ -1,6 +1,4 @@
-package collection1.array;
-
-import java.util.List;
+package collectionEx.array;
 
 public class MyArrayListV1Main {
 

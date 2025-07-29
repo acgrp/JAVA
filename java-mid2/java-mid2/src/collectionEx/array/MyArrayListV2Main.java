@@ -1,4 +1,4 @@
-package collection1.array;
+package collectionEx.array;
 
 public class MyArrayListV2Main {
 

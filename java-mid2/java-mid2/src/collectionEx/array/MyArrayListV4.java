@@ -2,18 +2,20 @@ package collectionEx.array;
 
 import java.util.Arrays;
 
-public class MyArrayListV3 {
+public class MyArrayListV4<E> {
 
     private static final int DEFFAULT_CAPACITY = 5;
 
     private Object[] elementData;
     private int size = 0;
 
-    public MyArrayListV3() {
-        elementData = new Object[DEFFAULT_CAPACITY];
-    }
+    public MyArrayListV4() {
 
-    public MyArrayListV3(int initialCapacity) {
+        elementData = new Object[DEFFAULT_CAPACITY]; //E에는 new 명령어를 사용할수 없음
+    }  //생성자에 E불가능
+
+    public MyArrayListV4(int initialCapacity) {
+
         elementData = new Object[initialCapacity];
     }
 
@@ -21,7 +23,7 @@ public class MyArrayListV3 {
         return size;
     }
 
-    public void add(Object e){
+    public void add(E e){
 
         if (size == elementData.length) {
             grow();
@@ -30,7 +32,7 @@ public class MyArrayListV3 {
         size++;
     }
     //코드 추가
-    public void add(int index, Object e){
+    public void add(int index, E e){
         if (size == elementData.length) {
             grow();
         }
@@ -51,19 +53,21 @@ public class MyArrayListV3 {
         elementData = Arrays.copyOf(elementData, newCapacity);
         }
 
-    public Object get(int index){
-        return elementData[index];
+    @SuppressWarnings("unchecked")  // 경고를 무시하겠다는 뜻
+    public E get(int index){
+
+        return (E) elementData[index]; //안되기때문에 (E)로 캐스팅
     }
 
-    public Object set(int index, Object element) {
-        Object oldValue = get(index);
+    public E set(int index, E element) {
+        E oldValue = get(index);
         elementData[index] = element;
         return oldValue;
     }
 
     //코드 추가
-    public Object remove(int index) {
-        Object oldValue = get(index);
+    public E remove(int index) {
+        E oldValue = get(index);
         //데이터 이동
         shiftLeftFrom(index);
         size--;
@@ -78,7 +82,7 @@ public class MyArrayListV3 {
         }
     }
 
-    public int indexOf(Object o){
+    public int indexOf(E o){
         for (int i = 0; i < size; i++) {
             if (o.equals(elementData[i])) {
                 return i;
