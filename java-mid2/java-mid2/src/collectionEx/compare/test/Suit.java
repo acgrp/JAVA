@@ -1,4 +1,4 @@
-package collection.compare.test;
+package collectionEx.compare.test;
 
 public enum Suit {
     SPADE("♠"),  // 스페이드(♠)
@@ -14,7 +14,6 @@ public enum Suit {
     }
 
     public String getIcon() {
-
         return icon;
     }
 
