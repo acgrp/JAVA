@@ -21,7 +21,7 @@ public class BoundedQueueV3 implements BoundedQueue {
         while (queue.size() == max) {
             log("[put] 큐가 가득 참, 생산자 대기");
             try {
-                wait(); //Runnable -> Waitting, 락 반납
+                wait();                                     //Runnable -> Waitting, 락 반납
                 log("[put] 생산자 깨어남");
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
