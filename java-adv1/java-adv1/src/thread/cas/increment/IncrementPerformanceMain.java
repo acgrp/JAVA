@@ -5,16 +5,16 @@ public class IncrementPerformanceMain {
     public static final long COUNT = 100_000_000;
 
     public static void main(String[] args) {
-        test(new BasicInteger());
-        test(new VolatileInteger());
-        test(new SyncInteger());
+        test(new Basicinteger());
+        test(new Volatileinteger());
+        test(new Syncinteger());
         test(new MyAtomicInteger());
     }
 
-    private static void test(IncrementInteger incrementInteger) {
+    private static void test(incrementInteger incrementInteger){
         long startMs = System.currentTimeMillis();
 
-        for (long i = 0; i < COUNT; i++) {
+        for(long i=0;i<COUNT;i++){
             incrementInteger.increment();
         }
 

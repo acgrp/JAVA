@@ -1,6 +1,6 @@
 package thread.cas.increment;
 
-public interface IncrementInteger {
+public interface incrementInteger {
     void increment();
 
     int get();

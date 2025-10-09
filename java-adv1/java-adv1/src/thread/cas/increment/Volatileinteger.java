@@ -1,6 +1,6 @@
 package thread.cas.increment;
 
-public class VolatileInteger implements IncrementInteger {
+public class Volatileinteger implements incrementInteger{
 
     volatile private int value;
 

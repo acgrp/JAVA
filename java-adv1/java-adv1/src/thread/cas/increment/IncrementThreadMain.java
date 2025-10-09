@@ -1,6 +1,5 @@
 package thread.cas.increment;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +10,13 @@ public class IncrementThreadMain {
     public static final int THREAD_COUNT = 1000;
 
     public static void main(String[] args) throws InterruptedException {
-        test(new BasicInteger());
-        test(new VolatileInteger());
-        test(new SyncInteger());
+        test(new Basicinteger());
+        test(new Volatileinteger());
+        test(new Syncinteger());
         test(new MyAtomicInteger());
     }
 
-    private static void test(IncrementInteger incrementInteger) throws InterruptedException {
-
+    private static void test(incrementInteger incrementInteger) throws InterruptedException {
         Runnable runnable = new Runnable() {
             @Override
             public void run() {
@@ -38,6 +36,7 @@ public class IncrementThreadMain {
         }
 
         int result = incrementInteger.get();
-        System.out.println(incrementInteger.getClass().getSimpleName() + " result: " + result);
+        System.out.println(incrementInteger.getClass().getSimpleName() + "result: " + result);
+
     }
 }

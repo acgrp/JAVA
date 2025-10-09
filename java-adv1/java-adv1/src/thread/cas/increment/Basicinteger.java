@@ -1,16 +1,16 @@
 package thread.cas.increment;
 
-public class SyncInteger implements IncrementInteger {
+public class Basicinteger implements incrementInteger{
 
     private int value;
 
     @Override
-    public synchronized void increment() {
+    public void increment() {
         value++;
     }
 
     @Override
-    public synchronized int get() {
+    public int get() {
         return value;
     }
 }
