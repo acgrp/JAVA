@@ -25,7 +25,7 @@ public class RunnableMain {
         public void run() {
             log("Runnable 시작");
             sleep(2000);
-            value = new Random().nextInt(10);
+            value    = new Random().nextInt(10);
             log("create value = " + value);
             log("Runnable 완료");
         }
