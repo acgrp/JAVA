@@ -1,13 +1,11 @@
 package hello.hello_spring.repository;
 
 import hello.hello_spring.domain.Member;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
 //@Repository
-public class MemoryMemberRepository implements MemberRespository {
+public class MemoryMemberRepository implements MemberRepository {
 
 //    @Autowired 빈에 등록 안되면 사용 불가
     private static Map<Long, Member> store = new HashMap<>();

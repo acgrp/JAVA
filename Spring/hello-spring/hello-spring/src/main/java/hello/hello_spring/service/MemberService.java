@@ -1,20 +1,20 @@
 package hello.hello_spring.service;
 
 import hello.hello_spring.domain.Member;
-import hello.hello_spring.repository.MemberRespository;
+import hello.hello_spring.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
-
+@Transactional
 public class MemberService {
 
-    private final MemberRespository memberRespository;
+    private final MemberRepository memberRespository;
 
     @Autowired
-    public MemberService(MemberRespository memberRespository) {
+    public MemberService(MemberRepository memberRespository) {
         this.memberRespository = memberRespository;
     }
 
@@ -22,9 +22,11 @@ public class MemberService {
      * 회원가입
      */
     public Long join(Member member) {
-        validateDuplicateMember(member);//중복회원 검증
-        memberRespository.save(member);
-        return member.getId();
+
+            validateDuplicateMember(member);//중복회원 검증
+            memberRespository.save(member);
+            return member.getId();
+
     }
 
     private void validateDuplicateMember(Member member) {
@@ -35,8 +37,9 @@ public class MemberService {
     }
 
     public List<Member> findMembers() {
-        return memberRespository.findAll(); //만약 반환타입이 달랏다면?
-    };
+
+            return memberRespository.findAll();
+        }
 
     public Optional<Member> findOne(Long memberid) {
         return memberRespository.findById(memberid);

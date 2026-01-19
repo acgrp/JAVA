@@ -1,21 +1,33 @@
 package hello.hello_spring;
 
-import hello.hello_spring.repository.MemberRespository;
-import hello.hello_spring.repository.MemoryMemberRepository;
+import hello.hello_spring.aop.TimeTraceAop;
+import hello.hello_spring.repository.*;
 import hello.hello_spring.service.MemberService;
+import jakarta.persistence.EntityManager;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+
+import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
 
-    @Bean//스프링 빈에 등록하라는 뜻
-    public MemberService memberService() {
-        return new MemberService(memberRespository());
+private final MemberRepository memberRepository;
+
+@Autowired
+    public SpringConfig(MemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
     }
 
-    @Bean
-    public MemberRespository memberRespository() {
-        return new MemoryMemberRepository();
+    @Bean//스프링 빈에 등록하라는 뜻
+    public MemberService memberService() {
+        return new MemberService(memberRepository);
     }
+
+//
+//    @Bean
+//    public MemberRepository memberRespository() {
+//        return new JdbcTemplateMemberRepository(dataSource);
+//    }
 }
